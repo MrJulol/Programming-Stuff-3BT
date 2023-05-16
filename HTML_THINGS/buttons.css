@@ -1,0 +1,55 @@
+.YT1 {
+  background-color: rgb(200, 0, 0);
+  color: white;
+  border: none;
+  height: 36px;
+  width: 110px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: opacity 0.15s;
+}
+.YT1:hover {
+  opacity: 0.8;
+}
+.YT1:active {
+  opacity: 0.6;
+}
+
+.YT2 {
+  background-color: white;
+  border-color: rgb(27, 128, 217);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  color:rgb(27, 128, 217);
+  height: 36px;
+  width: 62px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.15s,
+    color 0.15s;
+}
+.YT2:hover {
+  background-color: rgb(27, 128, 217);
+  color: white;
+}
+.YT2:active {
+  opacity: 0.7;
+}
+
+.TW1 {
+  background-color: rgb(66, 154, 232);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 18px;
+  width: 74px;
+  height: 36px;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+.TW1:hover {
+  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.15);
+}
