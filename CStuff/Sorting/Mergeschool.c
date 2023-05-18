@@ -10,6 +10,7 @@ void printarr(int arr[]);
 int *fillarrrand();
 
 int main()
+//* Create Arr with random numbrs between 1 and MYRANDMAX the size of SIZE print it, sort it and print again
 {
     int *arr = fillarrrand();
 
@@ -23,6 +24,7 @@ int main()
 }
 
 void mergesort2(int arr[], int left, int right)
+//*recursive calls to spilt, sort, merge
 {
     if (left < right)
     {
@@ -35,6 +37,7 @@ void mergesort2(int arr[], int left, int right)
     }
 }
 void merge2(int arr[], int left, int middle, int right)
+//*Create Subarrays, copy main arr into subarr, sort these, and copy them back into arr
 {
     int n1 = middle - left + 1;
     int n2 = right - middle;
@@ -82,6 +85,7 @@ void merge2(int arr[], int left, int middle, int right)
     }
 }
 void printarr(int arr[])
+//*Print arr 
 {
     printf("\n");
     for (int i = 0; i < SIZE; i++)
@@ -90,6 +94,7 @@ void printarr(int arr[])
     }
 }
 int *fillarrrand()
+//*Create the arr and fill it with random numbers between 1 and MYMAXRAND
 {
     int *arr = malloc(SIZE * sizeof(int));
     for (int i = 0; i < SIZE; i++)

@@ -40,7 +40,7 @@ int main()
             if (!strcmp(buffer, stpmssg))
             {
                 printf("END\n");
-                return EXIT_SUCCESS; //Fix Memory leak????? or dafuq
+                return EXIT_SUCCESS; // Fix Memory leak????? or dafuq
             }
             else
             {

@@ -112,15 +112,11 @@ def filter_uneven_lst(lst) -> list:
 
 
 def is_anagram_lst(lst1, lst2) -> bool:
-    if sorted(lst1) == sorted(lst2):
-        return True
-    return False
+    return True if sorted(lst1) == sorted(lst2) else False
 
 
 def nth_fibonacci(num) -> int:
-    if num <= 1:
-        return num
-    return nth_fibonacci(num - 1) + nth_fibonacci(num - 2)
+    return num if num <= 1 else nth_fibonacci(num-1)+nth_fibonacci(num-2)
 
 
 def my_mergesort(array):
@@ -265,3 +261,5 @@ def increase(lst) -> int:
     maximum = 0
     for i in range(len(lst)):
         maximum = max(maximum, new_lst[i])
+
+
