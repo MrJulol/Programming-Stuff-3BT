@@ -2,23 +2,24 @@
 #include <stdlib.h>
 
 #define SIZE 20
+#define MYRANDMAX 100
 
 void merge2(int arr[], int left, int middle, int right);
 void mergesort2(int arr[], int left, int right);
 void printarr(int arr[]);
+int *fillarrrand();
 
 int main()
 {
-    int arr[SIZE];
-    for (int i = 0; i < SIZE; i++)
-    {
-        arr[i] = (rand() % 10000) + 1;
-    }
+    int *arr = fillarrrand();
+
     printarr(arr);
 
     mergesort2(arr, 0, SIZE - 1);
 
     printarr(arr);
+
+    free(arr);
 }
 
 void mergesort2(int arr[], int left, int right)
@@ -80,7 +81,6 @@ void merge2(int arr[], int left, int middle, int right)
         mergedindex++;
     }
 }
-
 void printarr(int arr[])
 {
     printf("\n");
@@ -88,4 +88,13 @@ void printarr(int arr[])
     {
         printf("%d ", arr[i]);
     }
+}
+int *fillarrrand()
+{
+    int *arr = malloc(SIZE * sizeof(int));
+    for (int i = 0; i < SIZE; i++)
+    {
+        arr[i] = (rand() % MYRANDMAX) + 1;
+    }
+    return arr;
 }
