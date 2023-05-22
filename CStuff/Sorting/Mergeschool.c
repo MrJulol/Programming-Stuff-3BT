@@ -4,102 +4,102 @@
 #define SIZE 20
 #define MYRANDMAX 100
 
-void merge2(int arr[], int left, int middle, int right);
-void mergesort2(int arr[], int left, int right);
-void printarr(int arr[]);
+void merge2(int main_arr[], int left, int middle, int right);
+void mergesort2(int main_arr[], int left, int right);
+void printarr(int main_arr[]);
 int *fillarrrand();
 
 int main()
 //* Create Arr with random numbrs between 1 and MYRANDMAX the size of SIZE print it, sort it and print again
 {
-    int *arr = fillarrrand();
+    int *main_arr = fillarrrand();
 
-    printarr(arr);
+    printarr(main_arr);
 
-    mergesort2(arr, 0, SIZE - 1);
+    mergesort2(main_arr, 0, SIZE - 1);
 
-    printarr(arr);
+    printarr(main_arr);
 
-    free(arr);
+    free(main_arr);
 }
 
-void mergesort2(int arr[], int left, int right)
+void mergesort2(int main_arr[], int left, int right)
 //*recursive calls to spilt, sort, merge
 {
     if (left < right)
     {
         int middle = left + (right - left) / 2;
 
-        mergesort2(arr, left, middle);
-        mergesort2(arr, middle + 1, right);
+        mergesort2(main_arr, left, middle);
+        mergesort2(main_arr, middle + 1, right);
 
-        merge2(arr, left, middle, right);
+        merge2(main_arr, left, middle, right);
     }
 }
-void merge2(int arr[], int left, int middle, int right)
-//*Create Subarrays, copy main arr into subarr, sort these, and copy them back into arr
+void merge2(int main_arr[], int left, int middle, int right)
+//*Create Subarrays, copy main main_arr into subarr, sort these, and copy them back into main_arr
 {
-    int n1 = middle - left + 1;
-    int n2 = right - middle;
+    int len_left = middle - left + 1;
+    int len_right = right - middle;
 
-    int leftarr[n1];
-    int rightarr[n1];
+    int arr_left[len_left];
+    int arr_right[len_left];
 
-    for (int i = 0; i < n1; i++)
+    for (int i = 0; i < len_left; i++)
     {
-        leftarr[i] = arr[left + i];
+        arr_left[i] = main_arr[left + i];
     }
-    for (int i = 0; i < n2; i++)
+    for (int i = 0; i < len_right; i++)
     {
-        rightarr[i] = arr[middle + i + 1];
+        arr_right[i] = main_arr[middle + i + 1];
     }
     int leftindex = 0;
     int rightindex = 0;
     int mergedindex = left;
 
-    while (leftindex < n1 && rightindex < n2)
+    while (leftindex < len_left && rightindex < len_right)
     {
-        if (leftarr[leftindex] <= rightarr[rightindex])
+        if (arr_left[leftindex] <= arr_right[rightindex])
         {
-            arr[mergedindex] = leftarr[leftindex];
+            main_arr[mergedindex] = arr_left[leftindex];
             leftindex++;
         }
         else
         {
-            arr[mergedindex] = rightarr[rightindex];
+            main_arr[mergedindex] = arr_right[rightindex];
             rightindex++;
         }
         mergedindex++;
     }
-    while (leftindex < n1)
+    while (leftindex < len_left)
     {
-        arr[mergedindex] = leftarr[leftindex];
+        main_arr[mergedindex] = arr_left[leftindex];
         leftindex++;
         mergedindex++;
     }
-    while (rightindex < n2)
+    while (rightindex < len_right)
     {
-        arr[mergedindex] = rightarr[rightindex];
+        main_arr[mergedindex] = arr_right[rightindex];
         rightindex++;
         mergedindex++;
     }
 }
-void printarr(int arr[])
-//*Print arr 
+void printarr(int main_arr[])
+//*Print main_arr
 {
-    printf("\n");
     for (int i = 0; i < SIZE; i++)
     {
-        printf("%d ", arr[i]);
+        printf("%d ", main_arr[i]);
     }
+    printf("\n");
 }
 int *fillarrrand()
-//*Create the arr and fill it with random numbers between 1 and MYMAXRAND
+//*Create the main_arr and fill it with random numbers between 1 and MYMAXRAND
 {
-    int *arr = malloc(SIZE * sizeof(int));
+    int *main_arr = malloc(SIZE * sizeof(int));
     for (int i = 0; i < SIZE; i++)
     {
-        arr[i] = (rand() % MYRANDMAX) + 1;
+        main_arr[i] = (rand() % MYRANDMAX) + 1;
     }
-    return arr;
+    return main_arr;
 }

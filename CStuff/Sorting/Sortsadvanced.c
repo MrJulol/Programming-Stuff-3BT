@@ -27,8 +27,8 @@ unsigned long long counter_quick = 0;
 #define HELLO() printf("What dafuq are you running as OS\n")
 #endif
 
-#define MAX 1000       // Arr Size
-#define SAMPLESIZE 10 // Test Sample average SAMPLESIZE
+#define MAX 100000       // Arr Size
+#define SAMPLESIZE 2 // Test Sample average SAMPLESIZE
 
 void swap(int *a, int *b)
 // Swap for Selectionsort
