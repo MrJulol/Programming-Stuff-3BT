@@ -27,8 +27,8 @@ unsigned long long counter_quick = 0;
 #define HELLO() printf("What dafuq are you running as OS\n")
 #endif
 
-#define MAX 100000       // Arr Size
-#define SAMPLESIZE 2 // Test Sample average SAMPLESIZE
+#define MAX 100      // Arr Size
+#define SAMPLESIZE 3 // Test Sample average SAMPLESIZE
 
 void swap(int *a, int *b)
 // Swap for Selectionsort
@@ -361,9 +361,19 @@ int main()
     avgt_quick = avgt_quick / SAMPLESIZE;
     avgt_merge = avgt_merge / SAMPLESIZE;
 
-    printf("_____________________________________________________________________");
-    printf("\nAverage Times: \nBubble: %.10lf\nSelection: %.10lf\nInsertion: %.10lf\nShell: %.10lf\nQuick: %.10lf\nMerge: %.10lf\n", avgt_bubble, avgt_select, avgt_insert, avgt_shell, avgt_quick, avgt_merge);
-    printf("Average Moves: \nBubble: %llu\nSelection: %llu\nInsertion: %llu\nShell: %llu\nQuick: %llu\nMerge: %llu\n", avg_bubble, avg_select, avg_insert, avg_shell, avg_quick, avg_merge);
+    FILE *fp;
+    fp = fopen("results.txt", "w");
+    if (fp == NULL)
+    {
+        perror("Error opening file");
+        return 0;
+    }
+
+    fprintf(fp, "_____________________________________________________________________");
+    fprintf(fp, "\nAverage Times: \nBubble: %.10lf\nSelection: %.10lf\nInsertion: %.10lf\nShell: %.10lf\nQuick: %.10lf\nMerge: %.10lf\n", avgt_bubble, avgt_select, avgt_insert, avgt_shell, avgt_quick, avgt_merge);
+    fprintf(fp, "Average Moves: \nBubble: %llu\nSelection: %llu\nInsertion: %llu\nShell: %llu\nQuick: %llu\nMerge: %llu\n", avg_bubble, avg_select, avg_insert, avg_shell, avg_quick, avg_merge);
+
+    fclose(fp);
 
     return EXIT_SUCCESS;
 }
