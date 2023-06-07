@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#define ARRSIZE 10000
+#define ARRSIZE 1000000
 #define SAMPLESIZE 1000
 
 int cmpfunc(const void *a, const void *b)
@@ -41,7 +41,7 @@ int main()
 
     srand((unsigned)time(NULL));
     int searchfor;
-    printf("Enter the number to search: (1-10000)");
+    printf("Enter the number to search: (1-%d)", ARRSIZE);
     scanf("%d", &searchfor);
     for (int j = 0; j < SAMPLESIZE; j++)
     {
@@ -50,7 +50,7 @@ int main()
         int isfound = 0;
         for (int i = 0; i < ARRSIZE; i++)
         {
-            arr[i] = rand() % 10000 + 1;
+            arr[i] = rand() % 1000000 + 1;
         }
         time = clock();
         for (int i = 0; i < ARRSIZE; i++)
