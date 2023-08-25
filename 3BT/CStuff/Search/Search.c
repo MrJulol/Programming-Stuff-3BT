@@ -37,7 +37,7 @@ int main()
         perror("Error opening file");
         return 0;
     }
-    fprintf(fp, "Time Linearsearch: ID, TIME1, TIME2\n");
+    fprintf(fp, "Search ID, TIME1, TIME2\n");
 
     srand((unsigned)time(NULL));
     int searchfor;

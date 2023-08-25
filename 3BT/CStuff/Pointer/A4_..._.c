@@ -11,8 +11,9 @@ int add_em_up(int count, ...)
 
     sum = 0;
     for (i = 0; i < count; i++)
+    {
         sum += va_arg(lst, int); /* Get the next argument value. */
-
+    }
     va_end(lst); /* Clean up. */
     return sum;
 }
