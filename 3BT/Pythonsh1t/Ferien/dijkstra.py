@@ -4,8 +4,7 @@ from queue import PriorityQueue
 class Graph:
     def __init__(self, num_of_vertices) -> None:  # Initializes the Class
         self.v = num_of_vertices  # Anzahl der Eckpunkte
-        self.edges = [[-1 for _ in range(num_of_vertices)]
-                      for _ in range(num_of_vertices)]  # Matrix of edges
+        self.edges = [[-1 for _ in range(num_of_vertices)]for _ in range(num_of_vertices)]  # Matrix of edges
         self.visited = []  # List of visited vertices
 
     def add_edge(self, u, v, distance) -> None:  # Add edge to object
@@ -37,6 +36,8 @@ class Graph:
                             d[neighbor] = new_cost  # Update cost
         return d
 
+
+print(float('inf'))
 
 g = Graph(9)  # initialise g as Object 'Graph' and add edges and distances
 g.add_edge(0, 1, 4)  # p1, p2, len
